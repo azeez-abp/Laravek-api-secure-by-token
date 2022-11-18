@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (max-width:520px) {
+    .fb {
+        flex-direction: column;
+        flex-flow: column-reverse;
+    }
+}

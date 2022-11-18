@@ -1,0 +1,124 @@
+php artisan make:controller AlbumController --model=Album (specify the model to use for the class) --requests(create http\Requests folder with two file: store and update ) --api (create api method inside the controller
+index, store, show, update and destroy
+)
+
+from Requests to Controller (Controller need Requests Request run first)
+
+php artisan make:resource V1\AlbumResource make Resource & V1 folder and create AlbumResource.php file in V1(folder for version 1)
+
+php artisan make:controller V1\AlbumController --model=Album --requests --api
+
+php artisan make:controller V1\ImageManipulationController --model=ImageManipulation --requests --api
+(abdi)? =>may conatain abdi or not one or zero
+//Laravel Breeze simple implementation of all of Laravel's authentication features, including login, registration, password reset, email verification, and password confirmation
+Laravel Breeze's default view layer is made up of simple Blade templates styled with Tailwind CSS.
+
+composer require laravel/breeze --dev
+
+php artisan breeze:install
+
+php artisan migrate
+npm install
+npm run dev
+
+Typically, Sanctum utilizes Laravel's web authentication guard to accomplish this. This provides the benefits of CSRF protection, session authentication, as well as protects against leakage of the authentication credentials via XSS.
+Santum is user for
+
+1. API token authentication
+2. SPA authentication.
+   Sanctum will only attempt to authenticate using cookies when the incoming request originates from your own SPA frontend
+   Sanctum if(cookie) get API-TOKEN from cookie
+   else {
+   check HTTP header
+   }
+
+Aggregate method count, max, min, avg, and sum ASCM
+Ordering, Grouping, Limit & Offset
+DB::table('users')->skip(10)->take(5)->get();
+DB::table('users')->increment('votes', 1, ['name' => 'John']); increase volt by 1 where name is hojn
+
+SELECT - extracts data from a database
+UPDATE - updates data in a database
+DELETE - deletes data from a database
+INSERT INTO - inserts new data into a database
+CREATE DATABASE - creates a new database
+ALTER DATABASE - modifies a database
+CREATE TABLE - creates a new table
+ALTER TABLE - modifies a table
+DROP TABLE - deletes a table
+CREATE INDEX - creates an index (search key)
+DROP INDEX - deletes an index
+TRUNCATE
+The MySQL AND, OR and NOT Operators
+MySQL ORDER BY Keyword
+IS NULL no value field
+///////////////////////////////
+SELECT MAX(column_name)
+FROM table_name
+WHERE condition;
+
+WHERE columnN LIKE pattern;
+
+SELECT '\* FROM Customers
+WHERE Country NOT IN ('Germany', 'France', 'UK');
+SELECT \* FROM Customers
+WHERE Country IN (SELECT Country FROM Suppliers);
+WHERE column_name BETWEEN value1 AND value2;
+
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers
+ON Orders.CustomerID=Customers.CustomerID; is intersection part common to table orders and customers
+
+SELECT column_name(s)
+FROM table1
+LEFT JOIN table2
+ON table1.column_name = table2.column_name; Everythning from table1 & parrt of table 2
+
+SELECT column_name(s)
+FROM table1
+RIGHT JOIN table2
+ON table1.column_name = table2.column_name; Everythning from table2 & parrt of table 2
+
+SELECT column_name(s)
+FROM table1
+CROSS JOIN table2; union everthing in table 1 and table 2 (No ON)
+
+SELECT column_name(s) FROM table1
+UNION ALL #(allow duplicate)
+SELECT column_name(s) FROM table2
+
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+HAVING condition
+ORDER BY column_name(s);
+
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 5
+ORDER BY COUNT(CustomerID) DESC;
+
+EXISTS ANY ALL
+
+SELECT SupplierName
+FROM Suppliers
+WHERE
+EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price < 20)
+
+INSERT INTO Customers (CustomerName, City, Country)
+SELECT SupplierName, City, Country FROM Suppliers
+WHERE Country='Germany';
+
+SELECT OrderID, Quantity,
+CASE
+---- WHEN Quantity > 30 THEN 'The quantity is greater than 30'
+---- WHEN Quantity = 30 THEN 'The quantity is 30'
+--- ELSE 'The quantity is under 30'
+END AS QuantityText
+FROM OrderDetails;
+////////////////////////
+
+ln -s public public_html (this command link public to public html)
