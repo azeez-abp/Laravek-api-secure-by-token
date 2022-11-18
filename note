@@ -122,3 +122,6 @@ FROM OrderDetails;
 ////////////////////////
 
 ln -s public public_html (this command link public to public html)
+
+ssh-keygen -t ed25519 -C "adioadeyorizeez@gmail.com"
+Get-Service ssh-agent | Select StartType
